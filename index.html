@@ -4,65 +4,250 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>KentselDönüşüm.com.tr | İstanbul Kentsel Dönüşüm Danışmanlığı</title>
-<meta name="description" content="Kentsel dönüşüm, riskli yapı tespiti, müteahhit seçimi, sözleşme, proje ve uygulama süreçlerinde güvenilir danışmanlık.">
+<title>İstanbul Kentsel Dönüşüm | Kat Karşılığı İnşaat ve Riskli Yapı</title>
+<meta name="description" content="İstanbul genelinde kentsel dönüşüm, kat karşılığı inşaat, riskli yapı dönüşümü, müteahhitlik ve proje geliştirme hizmetleri. Ücretsiz ön fizibilite alın.">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:Arial,sans-serif;background:#f4f6f8;color:#1f2937;line-height:1.6}
 a{text-decoration:none;color:inherit}
-.container{width:92%;max-width:1180px;margin:auto}
+img{max-width:100%;display:block}
+.container{width:92%;max-width:1200px;margin:auto}
 
-header{background:#111827;color:white;position:sticky;top:0;z-index:99}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
-.logo{font-size:26px;font-weight:800;color:#f97316}
-.menu{display:flex;gap:24px}
-.menu a{font-weight:600;color:white}
+header{
+background:#111827;
+color:white;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 4px 20px rgba(0,0,0,.18)
+}
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0
+}
+.logo{
+font-size:25px;
+font-weight:900;
+color:#f97316
+}
+.logo small{
+display:block;
+font-size:12px;
+color:#e5e7eb;
+font-weight:500
+}
+.menu{
+display:flex;
+gap:22px;
+align-items:center
+}
+.menu a{
+font-weight:700;
+font-size:15px;
+color:white
+}
 .menu a:hover{color:#f97316}
 
 .hero{
-background:linear-gradient(rgba(17,24,39,.75),rgba(17,24,39,.75)),
+background:
+linear-gradient(rgba(17,24,39,.78),rgba(17,24,39,.78)),
 url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;background-position:center;
-color:white;padding:110px 0
+background-size:cover;
+background-position:center;
+color:white;
+padding:115px 0
 }
-.hero h1{font-size:48px;max-width:760px;line-height:1.15;margin-bottom:20px}
-.hero p{font-size:20px;max-width:700px;margin-bottom:30px}
-.btn{display:inline-block;background:#f97316;color:white;padding:15px 24px;border-radius:8px;font-weight:700}
-.btn:hover{background:#ea580c}
+.hero-box{max-width:790px}
+.hero h1{
+font-size:48px;
+line-height:1.15;
+margin-bottom:22px
+}
+.hero p{
+font-size:20px;
+margin-bottom:28px;
+color:#f3f4f6
+}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+display:inline-block;
+background:#f97316;
+color:white;
+padding:15px 24px;
+border-radius:9px;
+font-weight:800
+}
+.btn.dark{background:#111827;border:1px solid white}
+.btn:hover{opacity:.9}
 
-section{padding:70px 0}
-.section-title{text-align:center;margin-bottom:40px}
-.section-title span{color:#f97316;font-weight:700}
-.section-title h2{font-size:34px;margin-top:8px}
+section{padding:75px 0}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title span{
+color:#f97316;
+font-weight:900;
+text-transform:uppercase;
+font-size:14px
+}
+.section-title h2{
+font-size:35px;
+color:#111827;
+margin-top:8px
+}
+.section-title p{
+max-width:760px;
+margin:12px auto 0;
+color:#4b5563
+}
 
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:white;padding:28px;border-radius:14px;box-shadow:0 8px 25px rgba(0,0,0,.08)}
-.card h3{margin-bottom:12px;color:#111827}
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px
+}
+.card{
+background:white;
+padding:28px;
+border-radius:16px;
+box-shadow:0 10px 28px rgba(0,0,0,.08);
+border-top:4px solid #f97316
+}
+.card h3{
+color:#111827;
+margin-bottom:12px;
+font-size:22px
+}
 
-.about{background:white}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about img{width:100%;border-radius:16px}
+.dark-section{
+background:#111827;
+color:white
+}
+.dark-section .section-title h2,
+.dark-section .card h3{color:white}
+.dark-section .section-title p{color:#d1d5db}
+.dark-section .card{
+background:#1f2937;
+border-top-color:#f97316
+}
 
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.step{background:#111827;color:white;padding:24px;border-radius:14px}
-.step b{display:block;color:#f97316;font-size:28px;margin-bottom:8px}
+.districts{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px
+}
+.districts a{
+background:white;
+padding:18px;
+border-radius:12px;
+font-weight:800;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.07)
+}
+.districts a:hover{
+background:#f97316;
+color:white
+}
 
-.cta{background:#f97316;color:white;text-align:center}
-.cta h2{font-size:36px;margin-bottom:15px}
-.cta p{font-size:19px;margin-bottom:25px}
+.about{
+background:white
+}
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:42px;
+align-items:center
+}
+.about-text h2{
+font-size:34px;
+margin-bottom:16px;
+color:#111827
+}
+.about-text p{
+margin-bottom:15px
+}
+.about-img{
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 12px 30px rgba(0,0,0,.18)
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px
+}
+.step{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 22px rgba(0,0,0,.08)
+}
+.step b{
+display:inline-flex;
+width:42px;
+height:42px;
+align-items:center;
+justify-content:center;
+background:#f97316;
+color:white;
+border-radius:50%;
+font-size:20px;
+margin-bottom:12px
+}
+
+.cta{
+background:#f97316;
+color:white;
+text-align:center
+}
+.cta h2{font-size:36px;margin-bottom:12px}
+.cta p{font-size:19px;margin-bottom:24px}
 .cta .btn{background:#111827}
 
-footer{background:#111827;color:white;padding:35px 0;text-align:center}
+footer{
+background:#111827;
+color:white;
+padding:45px 0
+}
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:30px
+}
+footer h3{color:#f97316;margin-bottom:12px}
+footer a{display:block;margin-bottom:8px;color:#e5e7eb}
+.copy{
+border-top:1px solid #374151;
+margin-top:30px;
+padding-top:18px;
+text-align:center;
+color:#d1d5db
+}
+
 .whatsapp{
-position:fixed;right:20px;bottom:20px;background:#25D366;color:white;
-padding:15px 20px;border-radius:50px;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.25)
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 21px;
+border-radius:50px;
+font-weight:900;
+box-shadow:0 8px 25px rgba(0,0,0,.3);
+z-index:999
 }
 
 @media(max-width:900px){
 .menu{display:none}
+.hero{padding:85px 0}
 .hero h1{font-size:34px}
-.cards,.steps,.about-grid{grid-template-columns:1fr}
+.hero p{font-size:18px}
+.cards,.about-grid,.steps,.footer-grid{grid-template-columns:1fr}
+.districts{grid-template-columns:repeat(2,1fr)}
+.section-title h2{font-size:28px}
 }
 </style>
 </head>
@@ -71,21 +256,34 @@ padding:15px 20px;border-radius:50px;font-weight:800;box-shadow:0 8px 20px rgba(
 
 <header>
   <div class="container nav">
-    <div class="logo">KentselDönüşüm.com.tr</div>
+    <a class="logo" href="index.html">
+      KentselDönüşüm.com.tr
+      <small>İstanbul Kentsel Dönüşüm Hizmetleri</small>
+    </a>
+
     <nav class="menu">
-      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="index.html">Ana Sayfa</a>
       <a href="#hizmetler">Hizmetler</a>
       <a href="#surec">Süreç</a>
+      <a href="#ilceler">İlçeler</a>
       <a href="#iletisim">İletişim</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" id="anasayfa">
+<section class="hero">
   <div class="container">
-    <h1>Riskli Yapınızı Güvenli ve Değerli Bir Yaşama Dönüştürün</h1>
-    <p>Kentsel dönüşüm sürecinde maliklerin haklarını koruyan, şeffaf, güvenilir ve profesyonel danışmanlık hizmeti sunuyoruz.</p>
-    <a class="btn" href="#iletisim">Ücretsiz Ön Görüşme Al</a>
+    <div class="hero-box">
+      <h1>İstanbul Genelinde Kentsel Dönüşüm ve Kat Karşılığı İnşaat</h1>
+      <p>
+        Riskli yapılarınızı güvenli, modern ve değerli projelere dönüştürüyoruz.
+        Binanız, arsanız veya apartmanınız için ücretsiz ön fizibilite hazırlıyoruz.
+      </p>
+      <div class="buttons">
+        <a class="btn" href="https://wa.me/905431813485">WhatsApp’tan Bilgi Al</a>
+        <a class="btn dark" href="#hizmetler">Hizmetleri İncele</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -93,33 +291,39 @@ padding:15px 20px;border-radius:50px;font-weight:800;box-shadow:0 8px 20px rgba(
   <div class="container">
     <div class="section-title">
       <span>Hizmetlerimiz</span>
-      <h2>Kentsel Dönüşümde Yanınızdayız</h2>
+      <h2>İstanbul’da Kentsel Dönüşüm Çözümleri</h2>
+      <p>Maliklerin haklarını koruyan, şeffaf ve güvenilir dönüşüm süreci için profesyonel destek sağlıyoruz.</p>
     </div>
 
     <div class="cards">
       <div class="card">
+        <h3>Kentsel Dönüşüm</h3>
+        <p>Riskli yapıların yenilenmesi, malik görüşmeleri, proje planlama ve uygulama sürecinde destek veriyoruz.</p>
+      </div>
+
+      <div class="card">
+        <h3>Kat Karşılığı İnşaat</h3>
+        <p>Arsa sahipleri ve bina maliklerine uygun, şeffaf ve sürdürülebilir kat karşılığı inşaat modelleri sunuyoruz.</p>
+      </div>
+
+      <div class="card">
         <h3>Riskli Yapı Süreci</h3>
-        <p>Binanızın riskli yapı tespiti, başvuru ve resmi süreçlerinde doğru yönlendirme sağlıyoruz.</p>
+        <p>Riskli yapı tespiti, başvuru süreci, yıkım ve yeniden yapım aşamalarında doğru yönlendirme sağlıyoruz.</p>
       </div>
-      <div class="card">
-        <h3>Malik Bilgilendirme</h3>
-        <p>Kat maliklerine süreç, haklar, sözleşme ve paylaşım modeli hakkında anlaşılır bilgi sunuyoruz.</p>
-      </div>
-      <div class="card">
-        <h3>Müteahhit Seçimi</h3>
-        <p>Güvenilir müteahhit, teminatlı sözleşme ve doğru teklif karşılaştırması konusunda destek veriyoruz.</p>
-      </div>
+
       <div class="card">
         <h3>Proje Geliştirme</h3>
-        <p>Arsa, imar durumu, emsal, TAKS, kat adedi ve daire paylaşımı için ön fizibilite hazırlıyoruz.</p>
+        <p>Arsa metrekaresi, emsal, TAKS, KAKS, kat adedi ve daire paylaşımı için ön analiz hazırlıyoruz.</p>
       </div>
+
       <div class="card">
-        <h3>Sözleşme Kontrolü</h3>
-        <p>Maliklerin hak kaybı yaşamaması için sözleşme maddelerini şeffaf şekilde değerlendiriyoruz.</p>
+        <h3>Müteahhitlik Hizmeti</h3>
+        <p>Güvenilir inşaat süreci, kaliteli malzeme, doğru iş planı ve zamanında teslim anlayışıyla çalışıyoruz.</p>
       </div>
+
       <div class="card">
-        <h3>Anahtar Teslim Takip</h3>
-        <p>Yıkımdan teslimata kadar inşaat sürecinin düzenli ve güvenilir ilerlemesine destek oluyoruz.</p>
+        <h3>Sözleşme ve Teminat</h3>
+        <p>Maliklerin hak kaybı yaşamaması için sözleşme, teminat ve teslim şartlarını şeffaf şekilde ele alıyoruz.</p>
       </div>
     </div>
   </div>
@@ -127,51 +331,81 @@ padding:15px 20px;border-radius:50px;font-weight:800;box-shadow:0 8px 20px rgba(
 
 <section class="about">
   <div class="container about-grid">
-    <div>
-      <div class="section-title" style="text-align:left;margin-bottom:20px">
-        <span>Biz Kimiz?</span>
-        <h2>Güvenli Dönüşüm İçin Doğru Rehber</h2>
-      </div>
+    <div class="about-text">
+      <h2>Binanızın Dönüşüm Potansiyelini Birlikte Hesaplayalım</h2>
       <p>
-        KentselDönüşüm.com.tr, bina sahiplerinin kentsel dönüşüm sürecinde bilinçli karar vermesi için hazırlanmış profesyonel bir danışmanlık platformudur.
+        İstanbul’da eski, riskli veya ekonomik ömrünü tamamlamış binalar için dönüşüm sürecini doğru planlamak çok önemlidir.
       </p>
-      <br>
       <p>
-        Amacımız; riskli yapı sürecini, malik anlaşmalarını, müteahhit tekliflerini ve proje geliştirme aşamalarını daha anlaşılır ve güvenli hale getirmektir.
+        Arsa alanı, mevcut daire sayısı, imar durumu ve malik beklentileri birlikte değerlendirilerek en uygun proje modeli oluşturulur.
       </p>
+      <p>
+        Amacımız sadece bina yapmak değil; maliklerin hakkını koruyan, güvenli ve değerli projeler geliştirmektir.
+      </p>
+      <a class="btn" href="https://wa.me/905431813485">Ücretsiz Ön Analiz İste</a>
     </div>
-    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Kentsel dönüşüm bina">
+
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="İstanbul kentsel dönüşüm inşaat projesi">
+    </div>
   </div>
 </section>
 
-<section id="surec">
+<section class="dark-section" id="surec">
   <div class="container">
     <div class="section-title">
-      <span>Süreç Nasıl İşler?</span>
-      <h2>4 Adımda Kentsel Dönüşüm</h2>
+      <span>Süreç</span>
+      <h2>Kentsel Dönüşüm Nasıl Başlar?</h2>
+      <p>İlk görüşmeden proje teslimine kadar süreci adım adım planlıyoruz.</p>
     </div>
 
     <div class="steps">
       <div class="step">
         <b>1</b>
-        <h3>Ön İnceleme</h3>
-        <p>Arsa, bina, malik sayısı ve imar durumu değerlendirilir.</p>
+        <h3>Ön Görüşme</h3>
+        <p>Bina, arsa, malik sayısı ve beklentiler değerlendirilir.</p>
       </div>
+
       <div class="step">
         <b>2</b>
         <h3>Fizibilite</h3>
-        <p>Yeni projede daire, metrekare ve paylaşım modeli hesaplanır.</p>
+        <p>İmar durumu, emsal ve yeni proje potansiyeli hesaplanır.</p>
       </div>
+
       <div class="step">
         <b>3</b>
-        <h3>Sözleşme</h3>
-        <p>Malik haklarını koruyan güvenli sözleşme yapısı oluşturulur.</p>
+        <h3>Teklif ve Anlaşma</h3>
+        <p>Kat karşılığı model, paylaşım ve sözleşme şartları belirlenir.</p>
       </div>
+
       <div class="step">
         <b>4</b>
-        <h3>Uygulama</h3>
-        <p>Yıkım, ruhsat, inşaat ve teslim süreci takip edilir.</p>
+        <h3>Proje ve İnşaat</h3>
+        <p>Ruhsat, yıkım, yapım ve teslim süreci takip edilir.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="ilceler">
+  <div class="container">
+    <div class="section-title">
+      <span>Hizmet Bölgeleri</span>
+      <h2>İstanbul Geneli Kentsel Dönüşüm</h2>
+      <p>Özellikle Avrupa Yakası başta olmak üzere İstanbul’un birçok ilçesinde dönüşüm projeleri için ön değerlendirme yapıyoruz.</p>
+    </div>
+
+    <div class="districts">
+      <a href="#">Bahçelievler</a>
+      <a href="#">Bakırköy</a>
+      <a href="#">Bağcılar</a>
+      <a href="#">Güngören</a>
+      <a href="#">Avcılar</a>
+      <a href="#">Küçükçekmece</a>
+      <a href="#">Esenler</a>
+      <a href="#">Zeytinburnu</a>
+      <a href="#">Başakşehir</a>
+      <a href="#">Üsküdar</a>
     </div>
   </div>
 </section>
@@ -179,16 +413,36 @@ padding:15px 20px;border-radius:50px;font-weight:800;box-shadow:0 8px 20px rgba(
 <section class="cta" id="iletisim">
   <div class="container">
     <h2>Binanız Kentsel Dönüşüme Uygun mu?</h2>
-    <p>Adres, arsa metrekaresi ve mevcut daire sayısını gönderin; ön değerlendirme yapalım.</p>
-    <a class="btn" href="https://wa.me/905431813485">WhatsApp’tan Bilgi Al</a>
+    <p>Arsa metrekaresi, mevcut daire sayısı ve adres bilgisi gönderin; ilk değerlendirmeyi yapalım.</p>
+    <a class="btn" href="https://wa.me/905431813485">WhatsApp’tan Hemen Yaz</a>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    <p><strong>KentselDönüşüm.com.tr</strong></p>
-    <p>İstanbul Kentsel Dönüşüm Danışmanlığı</p>
-    <p>WhatsApp: 0543 181 34 85</p>
+  <div class="container footer-grid">
+    <div>
+      <h3>KentselDönüşüm.com.tr</h3>
+      <p>İstanbul genelinde kentsel dönüşüm, kat karşılığı inşaat, riskli yapı dönüşümü ve proje geliştirme hizmetleri.</p>
+    </div>
+
+    <div>
+      <h3>Menü</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#ilceler">İlçeler</a>
+    </div>
+
+    <div>
+      <h3>İletişim</h3>
+      <p>Telefon / WhatsApp:</p>
+      <p><strong>0543 181 34 85</strong></p>
+      <p>İstanbul</p>
+    </div>
+  </div>
+
+  <div class="container copy">
+    <p>© 2026 KentselDönüşüm.com.tr - Tüm Hakları Saklıdır.</p>
   </div>
 </footer>
 
