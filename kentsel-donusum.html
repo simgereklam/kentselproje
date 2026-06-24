@@ -3,72 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kentsel Dönüşüm Süreci</title>
+<title>Kentsel Dönüşüm Süreci | Kentseldönüşüm.com.tr</title>
 <meta name="description" content="Kentsel dönüşüm sürecini eski binadan yeni teslim edilen binaya kadar adım adım görün.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;color:#111827;line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+.header{background:#071a33;color:#fff;position:sticky;top:0;z-index:999;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.nav{max-width:1200px;margin:auto;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:22px;font-weight:800;letter-spacing:.4px;color:white;white-space:nowrap}
+.menu{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}
+.menu a{color:white;opacity:.92}.menu a:hover,.menu a.active{color:#fbbf24;opacity:1}
+
 .kentsel-surec{padding:45px 14px;background:#f3f4f6;text-align:center}
 .kentsel-surec .container{max-width:1050px;margin:auto}
 .kentsel-surec h1{font-size:34px;margin-bottom:8px;color:#111827}
 .kentsel-surec .aciklama{max-width:760px;margin:0 auto 24px;color:#374151;font-size:17px}
-
-/* RESİMLER FARKLI BOYUTTA OLSA DA AYNI KUTUYA OTURUR */
-.slider-box{
-  position:relative;
-  max-width:850px;
-  height:520px;
-  margin:0 auto;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 12px 32px rgba(0,0,0,.22);
-  background:#ffffff;
-}
-.slider-box img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-  background:#ffffff;
-}
-.slider-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:3;
-  width:48px;
-  height:58px;
-  border:0;
-  border-radius:10px;
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  font-size:42px;
-  cursor:pointer;
-  line-height:1;
-}
+.slider-box{position:relative;max-width:850px;height:520px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.22);background:#ffffff}
+.slider-box img{width:100%;height:100%;object-fit:contain;display:block;background:#ffffff}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:48px;height:58px;border:0;border-radius:10px;background:rgba(0,0,0,.55);color:#fff;font-size:42px;cursor:pointer;line-height:1}
 .slider-btn:hover{background:rgba(0,0,0,.75)}
 .prev{left:12px}.next{right:12px}
-.slide-info{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:14px 18px;
-  background:linear-gradient(transparent,rgba(0,0,0,.78));
-  color:white;
-  text-align:left;
-}
+.slide-info{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:white;text-align:left}
 .slide-info strong{font-size:21px;display:block}.slide-info span{font-size:14px;opacity:.95}
 .dots{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
 .dot{width:12px;height:12px;border-radius:50%;background:#9ca3af;border:0;cursor:pointer}.dot.active{background:#111827;transform:scale(1.25)}
 .surec-adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;text-align:left}
 .adim{background:white;border-radius:14px;padding:14px;box-shadow:0 6px 16px rgba(0,0,0,.08);font-weight:700;color:#111827;font-size:15px}
 .adim span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#111827;color:white;margin-right:8px;font-size:13px}
-@media(max-width:900px){.slider-box{max-width:760px;height:460px}.surec-adimlar{grid-template-columns:repeat(2,1fr)}.kentsel-surec h1{font-size:29px}}
-@media(max-width:600px){.kentsel-surec{padding:32px 10px}.slider-box{width:100%;height:300px;border-radius:14px}.slider-btn{width:38px;height:50px;font-size:32px}.prev{left:7px}.next{right:7px}.slide-info{padding:12px}.slide-info strong{font-size:17px}.slide-info span{font-size:13px}.surec-adimlar{grid-template-columns:1fr}.kentsel-surec .aciklama{font-size:15px}}
+.cta{background:#071a33;color:#fff;text-align:center;padding:50px 18px;margin-top:35px}.cta h2{font-size:30px;margin-bottom:10px}.cta p{font-size:18px;margin-bottom:12px}.cta .phone{font-size:28px;font-weight:900;color:#fbbf24}
+.footer{background:#04101f;color:#d1d5db;text-align:center;padding:22px;font-size:14px}
+@media(max-width:900px){.nav{align-items:flex-start;flex-direction:column}.menu{gap:12px}.slider-box{max-width:760px;height:460px}.surec-adimlar{grid-template-columns:repeat(2,1fr)}.kentsel-surec h1{font-size:29px}}
+@media(max-width:600px){.kentsel-surec{padding:32px 10px}.slider-box{width:100%;height:300px;border-radius:14px}.slider-btn{width:38px;height:50px;font-size:32px}.prev{left:7px}.next{right:7px}.slide-info{padding:12px}.slide-info strong{font-size:17px}.slide-info span{font-size:13px}.surec-adimlar{grid-template-columns:1fr}.kentsel-surec .aciklama{font-size:15px}.logo{font-size:19px}.menu{font-size:14px}.cta h2{font-size:24px}}
 </style>
 </head>
 <body>
+<header class="header">
+  <div class="nav">
+    <a class="logo" href="index.html">KENTSELDÖNÜŞÜM.COM.TR</a>
+    <nav class="menu">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="kurumsal.html">Kurumsal</a>
+      <a class="active" href="kentsel-donusum.html">Kentsel Dönüşüm</a>
+      <a href="projelerimiz.html">Projelerimiz</a>
+      <a href="hizmetlerimiz.html">Hizmetlerimiz</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+  </div>
+</header>
 
 <section class="kentsel-surec" id="kentsel-donusum-sureci">
   <div class="container">
@@ -102,6 +85,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f3f4f6;color:#111827;lin
   </div>
 </section>
 
+<section class="cta" id="iletisim">
+  <h2>Binanız İçin Kentsel Dönüşüm Teklifi Alın</h2>
+  <p>Uzman çözüm ortaklarımızla güvenli dönüşüm süreci.</p>
+  <div class="phone">0543 181 34 85</div>
+</section>
+
+<footer class="footer">© 2026 Kentseldönüşüm.com.tr | Kentsel Dönüşüm - Kat Karşılığı İnşaat</footer>
+
 <script>
 const surecResimler = [
   {src:"kentsel.1.png", baslik:"Eski Bina", alt:"Yenibosna sokak içinde mevcut eski bina."},
@@ -117,7 +108,6 @@ const surecResimler = [
 
 let aktif = 0;
 let timer;
-
 function dotsOlustur(){
   const dots = document.getElementById("dots");
   dots.innerHTML = "";
@@ -128,7 +118,6 @@ function dotsOlustur(){
     dots.appendChild(b);
   });
 }
-
 function goster(){
   const r = surecResimler[aktif];
   document.getElementById("surecImg").src = r.src;
@@ -138,12 +127,10 @@ function goster(){
   dotsOlustur();
   otomatikBaslat();
 }
-
 function sonrakiSlide(){ aktif = (aktif + 1) % surecResimler.length; goster(); }
 function oncekiSlide(){ aktif = (aktif - 1 + surecResimler.length) % surecResimler.length; goster(); }
 function slideGit(i){ aktif = i; goster(); }
 function otomatikBaslat(){ clearInterval(timer); timer = setInterval(sonrakiSlide, 5000); }
-
 let startX = 0;
 const slider = document.querySelector(".slider-box");
 slider.addEventListener("touchstart", e => startX = e.touches[0].clientX);
@@ -152,10 +139,7 @@ slider.addEventListener("touchend", e => {
   if(startX - endX > 50) sonrakiSlide();
   if(endX - startX > 50) oncekiSlide();
 });
-
-dotsOlustur();
-otomatikBaslat();
+goster();
 </script>
-
 </body>
 </html>
