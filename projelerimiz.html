@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projelerimiz | Kentseldönüşüm.com.tr</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#111827}a{text-decoration:none;color:inherit}.header{background:#061b33;color:white;position:sticky;top:0;z-index:1000}.nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;gap:20px}.brand{font-size:22px;font-weight:800}.menu{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}.menu a{color:white}.menu a.active,.menu a:hover{color:#f6b01a}.hero{background:linear-gradient(135deg,#071f3c,#0c315b);color:white;text-align:center;padding:55px 20px}.hero h1{font-size:38px}.hero p{margin-top:10px;color:#dbeafe}.section{padding:45px 16px}.wrap{max-width:1220px;margin:auto}.title{text-align:center;margin:30px 0 22px}.title h2{font-size:30px;color:#061b33}.title p{color:#4b5563;margin-top:6px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}.card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.10);cursor:pointer}.card img{width:100%;height:190px;object-fit:cover;display:block;background:#e5e7eb}.card span{display:block;padding:12px 14px;font-weight:700;color:#061b33}.load{display:block;margin:25px auto 5px;border:0;background:#061b33;color:white;padding:13px 24px;border-radius:8px;font-weight:800;cursor:pointer}.load:hover{background:#f6b01a;color:#061b33}.cta{background:#061b33;color:white;text-align:center;padding:50px 20px;margin-top:40px}.phone{display:inline-block;margin-top:12px;color:#f6b01a;font-size:28px;font-weight:900}.footer{background:#031020;color:#cbd5e1;text-align:center;padding:22px;font-size:14px}.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999;padding:18px}.lightbox.active{display:flex}.lightbox img{max-width:96vw;max-height:90vh;object-fit:contain;border-radius:10px}.close,.lbnav{position:absolute;border:0;cursor:pointer}.close{top:16px;right:18px;background:white;color:#111;border-radius:50%;width:42px;height:42px;font-size:28px}.lbnav{top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);color:#111;border-radius:50%;width:48px;height:48px;font-size:34px}.lbprev{left:18px}.lbnext{right:18px}@media(max-width:700px){.nav{flex-direction:column}.hero h1{font-size:30px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card img{height:135px}.card span{font-size:13px;padding:9px}.lbnav{width:42px;height:42px;font-size:28px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="nav"><a class="brand" href="index.html">KENTSELDÖNÜŞÜM.COM.TR</a><nav class="menu"><a href="index.html">Ana Sayfa</a><a href="kurumsal.html">Kurumsal</a><a href="kentsel-donusum.html">Kentsel Dönüşüm</a><a class="active" href="projelerimiz.html">Projelerimiz</a><a href="hizmetlerimiz.html">Hizmetlerimiz</a><a href="iletisim.html">İletişim</a></nav></div></header>
+<section class="hero"><h1>Projelerimiz</h1><p>Tamamlanan projeler, proje örnekleri ve devam eden kaba inşaat çalışmalarımız.</p></section>
+<section class="section"><div class="wrap">
+<div class="title"><h2>Tamamlanan Projeler</h2><p>Teslim edilmiş proje görselleri.</p></div><div class="grid" id="tamamGrid"></div><button class="load" data-cat="tamam">Daha Fazla Göster</button>
+<div class="title"><h2>Proje Örnekleri</h2><p>Modern konut ve site konseptleri.</p></div><div class="grid" id="projeGrid"></div><button class="load" data-cat="proje">Daha Fazla Göster</button>
+<div class="title"><h2>Devam Eden Projeler</h2><p>Kaba inşaat ve şantiye aşamaları.</p></div><div class="grid" id="kabaGrid"></div><button class="load" data-cat="kaba">Daha Fazla Göster</button>
+</div></section>
+<section class="cta"><h2>Binanız İçin Kentsel Dönüşüm Teklifi Alın</h2><a class="phone" href="tel:05431813485">0543 181 34 85</a></section><footer class="footer">© 2026 Kentseldönüşüm.com.tr</footer>
+<div class="lightbox" id="lightbox"><button class="close" id="close">×</button><button class="lbnav lbprev" id="lbprev">‹</button><img id="bigImg"><button class="lbnav lbnext" id="lbnext">›</button></div>
+<script>
+const kategoriler={
+  tamam:{grid:'tamamGrid',prefix:'tamam.',ext:'jpg',max:19,title:'Tamamlanan Proje'},
+  proje:{grid:'projeGrid',prefix:'proje.',ext:'png',max:30,title:'Proje Örneği'},
+  kaba:{grid:'kabaGrid',prefix:'kaba.',ext:'png',max:9,title:'Devam Eden Proje'}
+};
+let allImages=[], current=0;
+function file(k,i){return kategoriler[k].prefix+i+'.'+kategoriler[k].ext}
+function kartEkle(k,i){const c=kategoriler[k],g=document.getElementById(c.grid),src=file(k,i);const d=document.createElement('div');d.className='card';d.innerHTML=`<img loading="lazy" src="${src}" alt="${c.title} ${i}"><span>${c.title} ${i}</span>`;d.onclick=()=>open(src);g.appendChild(d);allImages.push(src)}
+function ilkYukle(){Object.keys(kategoriler).forEach(k=>{kategoriler[k].loaded=0;dahaFazla(k)})}
+function dahaFazla(k){const c=kategoriler[k];const bas=c.loaded+1;const son=Math.min(c.loaded+8,c.max);for(let i=bas;i<=son;i++)kartEkle(k,i);c.loaded=son;document.querySelector(`[data-cat="${k}"]`).style.display=c.loaded>=c.max?'none':'block'}
+document.querySelectorAll('.load').forEach(b=>b.onclick=()=>dahaFazla(b.dataset.cat));
+const lb=document.getElementById('lightbox'),big=document.getElementById('bigImg');function open(src){current=allImages.indexOf(src);big.src=src;lb.classList.add('active')}function show(n){current=(n+allImages.length)%allImages.length;big.src=allImages[current]}document.getElementById('lbnext').onclick=()=>show(current+1);document.getElementById('lbprev').onclick=()=>show(current-1);document.getElementById('close').onclick=()=>lb.classList.remove('active');lb.onclick=e=>{if(e.target===lb)lb.classList.remove('active')};document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('active');if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1)});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX);lb.addEventListener('touchend',e=>{let ex=e.changedTouches[0].clientX;if(sx-ex>50)show(current+1);if(ex-sx>50)show(current-1)});
+ilkYukle();
+</script>
+</body></html>
