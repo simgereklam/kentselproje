@@ -74,6 +74,154 @@ function ileri(){if(!aktifGaleriListesi.length)return;aktifIndex=(aktifIndex+1)%
 function geri(){if(!aktifGaleriListesi.length)return;aktifIndex=(aktifIndex-1+aktifGaleriListesi.length)%aktifGaleriListesi.length;big.src=aktifGaleriListesi[aktifIndex];}
 document.getElementById('close').onclick=kapat;document.getElementById('lbnext').onclick=ileri;document.getElementById('lbprev').onclick=geri;lb.addEventListener('click',e=>{if(e.target===lb)kapat();});document.addEventListener('keydown',e=>{if(!lb.classList.contains('active'))return;if(e.key==='Escape')kapat();if(e.key==='ArrowRight')ileri();if(e.key==='ArrowLeft')geri();});
 baslat();
+<script>
+const limit = 8;
+const durum = { 'tamamlanmis': 0, 'devam-eden': 0, 'ornekler': 0 };
+
+let TUM_RESIMLER = [];
+let aktifGaleriListesi = [];
+let aktifIndex = 0;
+
+const lb = document.getElementById('lightbox');
+const big = document.getElementById('bigImg');
+
+function temizYol(src){
+  if(!src) return '';
+  if(src.startsWith('http')) return src;
+  return './' + src.replace(/^\.?\//, '');
+}
+
+async function baslat(){
+  try{
+    const r = await fetch('./resimler.json?ts=' + Date.now(), { cache: 'reload' });
+
+    if(!r.ok){
+      throw new Error('resimler.json bulunamadı veya okunamadı');
+    }
+
+    const text = await r.text();
+    TUM_RESIMLER = JSON.parse(text);
+
+    if(!Array.isArray(TUM_RESIMLER)){
+      throw new Error('resimler.json liste formatında değil');
+    }
+
+  }catch(e){
+    console.error(e);
+
+    ['tamamlanmis','devam-eden','ornekler'].forEach(katAd => {
+      const grid = document.getElementById('grid-' + katAd);
+      const btn = document.getElementById('btn-' + katAd);
+      grid.innerHTML = '<div class="empty">resimler.json okunamadı. Dosya adını ve JSON formatını kontrol et.</div>';
+      btn.style.display = 'none';
+    });
+
+    return;
+  }
+
+  ['tamamlanmis','devam-eden','ornekler'].forEach(kategoriYukle);
+}
+
+function kategoriYukle(katAd){
+  const grid = document.getElementById('grid-' + katAd);
+  const btn = document.getElementById('btn-' + katAd);
+
+  const liste = TUM_RESIMLER.filter(x => x.kategori === katAd);
+  const bas = durum[katAd];
+  const parca = liste.slice(bas, bas + limit);
+
+  if(liste.length === 0 && bas === 0){
+    grid.innerHTML = '<div class="empty">Bu kategoriye henüz görsel eklenmedi.</div>';
+    btn.style.display = 'none';
+    return;
+  }
+
+  parca.forEach((item) => {
+    const src = temizYol(item.src);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const img = document.createElement('img');
+    img.src = src + '?v=' + Date.now();
+    img.dataset.realSrc = src;
+    img.alt = item.baslik || 'Proje Görseli';
+    img.loading = 'lazy';
+
+    img.onerror = function(){
+      console.error('Resim açılmadı:', item.src);
+
+      const hata = document.createElement('div');
+      hata.className = 'empty';
+      hata.style.fontSize = '12px';
+      hata.style.padding = '25px 8px';
+      hata.innerHTML = 'Resim açılmadı:<br><b>' + item.src + '</b>';
+
+      this.replaceWith(hata);
+    };
+
+    const span = document.createElement('span');
+    span.textContent = item.baslik || 'Proje Görseli';
+
+    card.appendChild(img);
+    card.appendChild(span);
+
+    card.addEventListener('click', () => resmiAc(src));
+
+    grid.appendChild(card);
+  });
+
+  durum[katAd] += parca.length;
+  btn.style.display = durum[katAd] >= liste.length ? 'none' : 'block';
+  btn.onclick = () => kategoriYukle(katAd);
+
+  updateActiveImages();
+}
+
+function updateActiveImages(){
+  aktifGaleriListesi = Array.from(document.querySelectorAll('.grid .card img'))
+    .map(img => img.dataset.realSrc || img.getAttribute('src'));
+}
+
+function resmiAc(src){
+  updateActiveImages();
+  aktifIndex = aktifGaleriListesi.indexOf(src);
+  if(aktifIndex < 0) aktifIndex = 0;
+  big.src = src + '?v=' + Date.now();
+  lb.classList.add('active');
+}
+
+function kapat(){
+  lb.classList.remove('active');
+  big.removeAttribute('src');
+}
+
+function ileri(){
+  if(!aktifGaleriListesi.length) return;
+  aktifIndex = (aktifIndex + 1) % aktifGaleriListesi.length;
+  big.src = aktifGaleriListesi[aktifIndex] + '?v=' + Date.now();
+}
+
+function geri(){
+  if(!aktifGaleriListesi.length) return;
+  aktifIndex = (aktifIndex - 1 + aktifGaleriListesi.length) % aktifGaleriListesi.length;
+  big.src = aktifGaleriListesi[aktifIndex] + '?v=' + Date.now();
+}
+
+document.getElementById('close').onclick = kapat;
+document.getElementById('lbnext').onclick = ileri;
+document.getElementById('lbprev').onclick = geri;
+
+lb.addEventListener('click', e => {
+  if(e.target === lb) kapat();
+});
+
+document.addEventListener('keydown', e => {
+  if(!lb.classList.contains('active')) return;
+  if(e.key === 'Escape') kapat();
+  if(e.key === 'ArrowRight') ileri();
+  if(e.key === 'ArrowLeft') geri();
+});
+
+baslat();
 </script>
-</body>
-</html>
