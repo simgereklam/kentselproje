@@ -28,7 +28,7 @@ body{
     line-height:1.45;
 }
 a{text-decoration:none;color:inherit}
-.container{max-width:1180px;margin:auto;padding:0 20px}
+.container{max-width:1240px;margin:auto;padding:0 20px}
 
 /* ÜST BAR */
 .topbar{
@@ -72,7 +72,7 @@ a{text-decoration:none;color:inherit}
     display:flex;
     align-items:center;
     gap:12px;
-    min-width:250px;
+    min-width:320px;
 }
 .logo-mark{
     width:54px;
@@ -102,9 +102,11 @@ a{text-decoration:none;color:inherit}
 .menu{
     display:flex;
     align-items:center;
-    gap:25px;
+    justify-content:center;
+    gap:22px;
     font-size:13px;
     font-weight:800;
+    flex:1;
 }
 .menu a{
     padding:32px 0;
@@ -127,7 +129,7 @@ a{text-decoration:none;color:inherit}
 /* HERO - GÖRSELSİZ */
 .hero{
     position:relative;
-    min-height:530px;
+    min-height:570px;
     overflow:hidden;
     background:
         radial-gradient(circle at 18% 25%, rgba(255,107,0,.28), transparent 28%),
@@ -147,9 +149,9 @@ a{text-decoration:none;color:inherit}
 .hero .container{
     position:relative;
     z-index:2;
-    min-height:530px;
+    min-height:570px;
     display:grid;
-    grid-template-columns:1.08fr .92fr;
+    grid-template-columns:minmax(0,1fr) 400px;
     gap:40px;
     align-items:center;
 }
@@ -206,12 +208,13 @@ a{text-decoration:none;color:inherit}
 /* HERO SAĞDA GÖRSELSİZ ÇİZİM ALANI */
 .hero-visual{
     position:relative;
-    min-height:380px;
+    min-height:auto;
     display:flex;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-end;
 }
 .city-card{
+    display:none;
     position:absolute;
     left:0;
     top:38px;
@@ -248,8 +251,9 @@ a{text-decoration:none;color:inherit}
     letter-spacing:.4px;
 }
 .analysis-card{
-    width:365px;
-    margin-left:auto;
+    width:100%;
+    max-width:390px;
+    margin-left:0;
     background:white;
     border-radius:8px;
     overflow:hidden;
@@ -304,7 +308,7 @@ a{text-decoration:none;color:inherit}
 .trust-wrap{
     position:relative;
     z-index:5;
-    margin-top:-36px;
+    margin-top:-24px;
 }
 .trust-box{
     background:white;
@@ -705,8 +709,6 @@ a{text-decoration:none;color:inherit}
         </div>
 
         <div class="hero-visual">
-            <div class="city-card"></div>
-
             <div class="analysis-card" id="on-basvuru">
                 <div class="analysis-head">
                     <h2>Ücretsiz Ön Değerlendirme Formu</h2>
