@@ -655,6 +655,28 @@ a{text-decoration:none;color:inherit}
     .partner-logos{grid-template-columns:1fr}
     .call-box{height:auto;padding:18px}
 }
+
+/* HEADER SOLA YAKLAŞTIRMA + KURUMSAL MENÜ DÜZENİ */
+.header .container.nav{
+    max-width:100%;
+    padding-left:32px;
+    padding-right:32px;
+}
+.header .logo{
+    margin-right:20px;
+}
+.header .menu{
+    justify-content:flex-end;
+    gap:18px;
+    font-size:12.5px;
+}
+@media(max-width:560px){
+    .header .container.nav{
+        padding-left:16px;
+        padding-right:16px;
+    }
+}
+
 </style>
 </head>
 
@@ -684,8 +706,8 @@ a{text-decoration:none;color:inherit}
 
         <nav class="menu" aria-label="Ana Menü">
             <a class="active" href="index.html">ANA SAYFA</a>
+            <a href="kurumsal.html">KURUMSAL</a>
             <a href="kentsel-donusum.html">KENTSEL DÖNÜŞÜM</a>
-            <a href="hakkimizda.html">HAKKIMIZDA</a>
             <a href="hizmetlerimiz.html">HİZMETLERİMİZ</a>
             <a href="projelerimiz.html">PROJELERİMİZ</a>
             <a href="sss.html">SSS</a>
