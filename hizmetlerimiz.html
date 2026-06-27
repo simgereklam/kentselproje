@@ -1,246 +1,125 @@
-<!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hizmetlerimiz | İstanbul Kentsel Dönüşüm ve Dekorasyon</title>
-<meta name="description" content="İstanbul kentsel dönüşüm, kat karşılığı inşaat, riskli yapı, anahtar teslim tadilat, dekorasyon, mobilya, kapı pencere, alçı sıva boya, seramik, tesisat ve mantolama hizmetleri.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="topbar">
-  <div class="container">
-    <span>İstanbul Geneli Kentsel Dönüşüm ve Kat Karşılığı İnşaat</span>
-    <span>WhatsApp: 0543 181 34 85</span>
-  </div>
-</div>
+from pathlib import Path
+import re
 
-<header>
-  <div class="container nav">
-    <a class="logo" href="index.html">KentselDönüşüm.com.tr<small>İstanbul Kentsel Dönüşüm Hizmetleri</small></a>
-    <nav class="menu">
-      <a href="index.html">Ana Sayfa</a>
-      <a class="active" href="hizmetlerimiz.html">Hizmetler</a>
-      <a href="kentsel-donusum.html">Kentsel Dönüşüm</a>
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="sss.html">S.S.S</a>
-      <a href="iletisim.html">İletişim</a>
-    </nav>
-  </div>
-</header>
+src = Path("/mnt/data/index_kurumsal_menu_logo_solda.html")
+if not src.exists():
+    src = Path("/mnt/data/index_anasayfa_menu_duzeldi.html")
 
-<section class="hero inner">
-  <div class="container">
-    <div class="hero-box">
-      <h1>Kentsel Dönüşüm ve İnşaat Hizmetlerimiz</h1>
-      <p>İstanbul genelinde dönüşüm projeleri, kat karşılığı inşaat, tadilat ve dekorasyon işleri için profesyonel çözüm sunuyoruz.</p>
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/905431813485">WhatsApp’tan Bilgi Al</a>
-        <a class="btn dark" href="iletisim.html">Ücretsiz Ön Fizibilite</a>
-      </div>
-    </div>
-  </div>
-</section>
+html = src.read_text(encoding="utf-8")
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <span>Hizmetler</span>
-      <h2>Neler Yapıyoruz?</h2>
-    </div>
+# Menü linklerini doğru sıraya al
+desktop_nav = '''<nav class="menu" aria-label="Ana Menü">
+            <a class="active" href="index.html">ANA SAYFA</a>
+            <a href="kurumsal.html">KURUMSAL</a>
+            <a href="kentsel-donusum.html">KENTSEL DÖNÜŞÜM</a>
+            <a href="projelerimiz.html">PROJELERİMİZ</a>
+            <a href="hizmetlerimiz.html">HİZMETLERİMİZ</a>
+            <a href="sss.html">SSS</a>
+            <a href="iletisim.html">İLETİŞİM</a>
+        </nav>'''
 
-    <div class="cards">
-      <div class="card">
-        <h3>Kentsel Dönüşüm</h3>
-        <p>Riskli ve eski yapıların yenilenmesi için malik görüşmesi, proje planı ve uygulama hazırlığı yapıyoruz.</p>
-        <ul>
-          <li>Ön fizibilite</li>
-          <li>Malik bilgilendirme</li>
-          <li>Yıkım ve yeniden yapım planı</li>
-        </ul>
-      </div>
+html = re.sub(r'<nav class="menu"[^>]*>.*?</nav>', desktop_nav, html, flags=re.S, count=1)
 
-      <div class="card">
-        <h3>Kat Karşılığı İnşaat</h3>
-        <p>Arsa veya mevcut bina için uygulanabilir paylaşım modeli oluşturuyoruz.</p>
-        <ul>
-          <li>Daire paylaşım analizi</li>
-          <li>İmar değerlendirmesi</li>
-          <li>Sözleşme şartları</li>
-        </ul>
-      </div>
+# Mobil büyük buton menüsünü hero butonlarından sonra ekle
+mobile_buttons = '''
+            <div class="mobile-menu-buttons" aria-label="Mobil hızlı menü">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="kurumsal.html">Kurumsal</a>
+                <a href="kentsel-donusum.html">Kentsel Dönüşüm</a>
+                <a href="projelerimiz.html">Projelerimiz</a>
+                <a href="hizmetlerimiz.html">Hizmetlerimiz</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+'''
 
-      <div class="card">
-        <h3>Riskli Yapı Danışmanlığı</h3>
-        <p>Riskli yapı sürecini anlaşılır hale getiriyor, doğru adımlar için yol haritası çıkarıyoruz.</p>
-        <ul>
-          <li>Riskli yapı süreci</li>
-          <li>Başvuru bilgilendirme</li>
-          <li>Malik süreç takibi</li>
-        </ul>
-      </div>
+# Eğer daha önce eklenmişse tekrar ekleme
+html = re.sub(r'\s*<div class="mobile-menu-buttons"[\s\S]*?</div>\s*', '\n', html)
 
-      <div class="card">
-        <h3>Proje Geliştirme</h3>
-        <p>Emsal, TAKS, KAKS, kat adedi ve daire metrekarelerini birlikte değerlendiriyoruz.</p>
-        <ul>
-          <li>İmar analizi</li>
-          <li>Kat planı değerlendirme</li>
-          <li>Proje ön çalışması</li>
-        </ul>
-      </div>
+html = html.replace('''            <div class="hero-buttons">
+                <a class="btn btn-orange" href="#on-basvuru">🏗 ÜCRETSİZ ÖN BAŞVURU YAP</a>
+                <a class="btn btn-outline" href="https://wa.me/905431813485?text=Merhaba,%20binam%20için%20kentsel%20dönüşüm%20hakkında%20bilgi%20almak%20istiyorum.">☏ WHATSAPP'TAN SOR</a>
+            </div>''',
+'''            <div class="hero-buttons">
+                <a class="btn btn-orange" href="#on-basvuru">🏗 ÜCRETSİZ ÖN BAŞVURU YAP</a>
+                <a class="btn btn-outline" href="https://wa.me/905431813485?text=Merhaba,%20binam%20için%20kentsel%20dönüşüm%20hakkında%20bilgi%20almak%20istiyorum.">☏ WHATSAPP'TAN SOR</a>
+            </div>
+''' + mobile_buttons)
 
-      <div class="card">
-        <h3>Müteahhitlik</h3>
-        <p>Ruhsat sonrası inşaat uygulaması, şantiye takibi ve teslim sürecini planlı şekilde yürütüyoruz.</p>
-        <ul>
-          <li>Şantiye organizasyonu</li>
-          <li>İnşaat uygulaması</li>
-          <li>Teslim süreci</li>
-        </ul>
-      </div>
+# CSS ekle
+css = r'''
+/* MOBİLDE ESKİ TARZ BÜYÜK MENÜ BUTONLARI */
+.mobile-menu-buttons{
+    display:none;
+}
 
-      <div class="card">
-        <h3>Sözleşme ve Teminat</h3>
-        <p>Malik haklarını koruyan, açık ve güvenilir sözleşme yapısı için destek sağlıyoruz.</p>
-        <ul>
-          <li>Noter onaylı sözleşme</li>
-          <li>Teminatlı süreç</li>
-          <li>Şeffaf paylaşım modeli</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+@media(max-width:700px){
+    .header .menu,
+    .menu{
+        display:none !important;
+    }
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <span>Dekorasyon Hizmetleri</span>
-      <h2>Anahtar Teslim Tadilat ve Dekorasyon</h2>
-      <p>Ev, ofis, mağaza, daire ve bina içi-dışı yenileme işlerinizde komple çözüm sunuyoruz.</p>
-    </div>
+    .mobile-menu-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+        margin-top:28px;
+        width:100%;
+    }
 
-    <div class="cards">
-      <div class="card">
-        <h3>Mobilya İmalatı</h3>
-        <p>Mutfak dolabı, gardırop, banyo dolabı, vestiyer, TV ünitesi ve özel ölçü mobilya imalatı yapıyoruz.</p>
-        <ul>
-          <li>Özel ölçü üretim</li>
-          <li>Mutfak ve banyo dolabı</li>
-          <li>Gardırop, vestiyer ve TV ünitesi</li>
-        </ul>
-      </div>
+    .mobile-menu-buttons a{
+        min-height:78px;
+        border-radius:16px;
+        background:rgba(255,255,255,.08);
+        border:1px solid rgba(255,255,255,.18);
+        color:white;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-size:20px;
+        font-weight:900;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 8px 22px rgba(0,0,0,.16);
+    }
 
-      <div class="card">
-        <h3>Kapı ve Pencere</h3>
-        <p>İç kapı, çelik kapı, PVC pencere, alüminyum doğrama ve pencere yenileme hizmetleri sunuyoruz.</p>
-        <ul>
-          <li>İç kapı değişimi</li>
-          <li>PVC pencere sistemleri</li>
-          <li>Alüminyum doğrama</li>
-        </ul>
-      </div>
+    .mobile-menu-buttons a:active{
+        transform:scale(.98);
+        background:rgba(255,107,0,.22);
+        border-color:rgba(255,107,0,.7);
+    }
 
-      <div class="card">
-        <h3>Alçı, Sıva ve Boya</h3>
-        <p>Daire, bina ve iş yerleri için alçı, sıva, boya, kartonpiyer ve dekoratif duvar uygulamaları yapıyoruz.</p>
-        <ul>
-          <li>Alçı ve sıva işleri</li>
-          <li>İç cephe boya</li>
-          <li>Dekoratif duvar uygulamaları</li>
-        </ul>
-      </div>
+    .hero-buttons{
+        display:none !important;
+    }
 
-      <div class="card">
-        <h3>Seramik ve Fayans</h3>
-        <p>Banyo, mutfak, balkon ve zemin alanlarında seramik, fayans, granit ve zemin kaplama uygulamaları yapıyoruz.</p>
-        <ul>
-          <li>Banyo seramik uygulaması</li>
-          <li>Mutfak fayans işleri</li>
-          <li>Zemin kaplama</li>
-        </ul>
-      </div>
+    .hero-content h1{
+        text-transform:uppercase;
+        font-size:32px !important;
+        line-height:1.28 !important;
+        letter-spacing:.2px;
+    }
 
-      <div class="card">
-        <h3>Elektrik Tesisatı</h3>
-        <p>Tadilat ve yenileme kapsamında priz, anahtar, aydınlatma, sigorta panosu ve elektrik tesisatı düzenlemeleri yapıyoruz.</p>
-        <ul>
-          <li>Elektrik tesisatı yenileme</li>
-          <li>Aydınlatma uygulamaları</li>
-          <li>Priz ve anahtar değişimi</li>
-        </ul>
-      </div>
+    .hero-content p,
+    .hero-note{
+        display:none;
+    }
+}
 
-      <div class="card">
-        <h3>Su Tesisatı</h3>
-        <p>Banyo, mutfak ve ıslak hacimlerde temiz su, gider hattı, lavabo, klozet, duş ve batarya tesisat işlerini yapıyoruz.</p>
-        <ul>
-          <li>Temiz su ve gider hattı</li>
-          <li>Banyo tesisatı</li>
-          <li>Mutfak tesisatı</li>
-        </ul>
-      </div>
+@media(max-width:420px){
+    .mobile-menu-buttons{
+        gap:12px;
+    }
 
-      <div class="card">
-        <h3>Mantolama ve Isı Yalıtımı</h3>
-        <p>Binalar için dış cephe mantolama, ısı yalıtımı, cephe boya ve cephe yenileme hizmetleri veriyoruz.</p>
-        <ul>
-          <li>Dış cephe mantolama</li>
-          <li>Isı yalıtımı</li>
-          <li>Cephe boya ve tamirat</li>
-        </ul>
-      </div>
+    .mobile-menu-buttons a{
+        min-height:72px;
+        font-size:18px;
+        border-radius:14px;
+    }
+}
+'''
 
-      <div class="card">
-        <h3>Anahtar Teslim Tadilat</h3>
-        <p>Daire, ofis ve iş yerleri için kırmadan teslimata kadar tüm tadilat sürecini tek elden planlıyoruz.</p>
-        <ul>
-          <li>Komple daire tadilatı</li>
-          <li>Ofis ve mağaza yenileme</li>
-          <li>Tek elden uygulama</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+html = html.replace("</style>", css + "\n</style>")
 
-<section class="cta">
-  <div class="container">
-    <h2>Projenizi Değerlendirelim</h2>
-    <p>Adres ve mevcut bina bilgilerinizi gönderin. Size uygun dönüşüm, tadilat veya dekorasyon çözümünü birlikte değerlendirelim.</p>
-    <a class="btn" href="https://wa.me/905431813485">WhatsApp’tan Yaz</a>
-  </div>
-</section>
+out = Path("/mnt/data/index_mobil_buyuk_menu_butonlari.html")
+out.write_text(html, encoding="utf-8")
 
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <h3>KentselDönüşüm.com.tr</h3>
-      <p>İstanbul genelinde kentsel dönüşüm, kat karşılığı inşaat, riskli yapı dönüşümü, proje geliştirme, tadilat ve dekorasyon hizmetleri.</p>
-    </div>
-
-    <div>
-      <h3>Menü</h3>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetlerimiz.html">Hizmetlerimiz</a>
-      <a href="kentsel-donusum.html">Kentsel Dönüşüm</a>
-      <a href="sss.html">S.S.S</a>
-      <a href="iletisim.html">İletişim</a>
-    </div>
-
-    <div>
-      <h3>İletişim</h3>
-      <p>Telefon / WhatsApp:</p>
-      <p><strong>0543 181 34 85</strong></p>
-      <p>İstanbul</p>
-    </div>
-  </div>
-  <div class="container copy">
-    <p>© 2026 KentselDönüşüm.com.tr - Tüm Hakları Saklıdır.</p>
-  </div>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/905431813485">WhatsApp</a>
-</body>
-</html>
+print(f"Hazır: {out}")
