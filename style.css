@@ -24,3 +24,14 @@ html{scroll-behavior:smooth}body{font-family:Inter,Arial,Helvetica,sans-serif;ba
 .img-lightbox-prev{left:22px}.img-lightbox-next{right:22px}
 .img-lightbox-close:hover,.img-lightbox-prev:hover,.img-lightbox-next:hover{background:var(--orange)}
 @media(max-width:640px){.img-lightbox{padding:12px}.img-lightbox img{max-width:94vw;max-height:76vh;border-radius:12px}.img-lightbox-close{right:12px;top:12px;width:42px;height:42px}.img-lightbox-prev,.img-lightbox-next{width:42px;height:42px;font-size:28px;top:auto;bottom:68px;transform:none}.img-lightbox-prev{left:18px}.img-lightbox-next{right:18px}.img-lightbox-caption{bottom:14px;border-radius:14px;font-size:13px;padding:9px 12px}}
+
+/* Firma isimli tek tip üst başlık */
+.topbar{display:none!important}
+.brand-company{gap:0;align-items:flex-start;line-height:1.12;min-width:310px;font-size:0;letter-spacing:0}
+.brand-company .mark{display:none!important}
+.brand-company .brand-text{display:flex;flex-direction:column;color:white;min-width:0}
+.brand-company .brand-text strong{font-size:24px;font-weight:950;letter-spacing:.2px;color:white;white-space:nowrap}
+.brand-company .brand-text em{font-style:normal;color:#cbd5e1;font-size:11px;font-weight:750;line-height:1.25;margin-top:4px;max-width:365px;white-space:normal}
+@media(max-width:1180px){.brand-company{min-width:260px}.brand-company .brand-text strong{font-size:21px}.brand-company .brand-text em{font-size:10px;max-width:280px}.menu{gap:14px;font-size:13px}.nav-cta{padding:12px 13px}}
+@media(max-width:980px){.brand-company{min-width:0;width:100%}.brand-company .brand-text strong{font-size:24px}.brand-company .brand-text em{font-size:12px;max-width:100%;white-space:normal}.navwrap{padding-top:14px}}
+@media(max-width:640px){.brand-company .brand-text strong{font-size:22px}.brand-company .brand-text em{font-size:11px;line-height:1.35}.mobile-hint{margin-top:0}}
