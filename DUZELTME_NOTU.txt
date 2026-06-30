@@ -1,0 +1,11 @@
+Bu pakette eski şablondan kalan istenmeyen üst bar kaldırıldı.
+Kaldırılanlar:
+- Üstteki “İstanbul Geneli Kentsel Dönüşüm ve Kat Karşılığı İnşaat” satırı
+- Üstteki WhatsApp satırı
+- Sol üstteki “KentselDönüşüm.com.tr” marka yazısı
+
+Yerine kurumsal başlık eklendi:
+- MASFEY İNŞAAT GRUP İŞTİRAKLERİ
+- Kardelen İnşaat • Örnek Yapı İnşaat • Lavinay İnşaat
+
+Başvuru ve WhatsApp butonları sayfa içinde bırakıldı; bunlar müşteri dönüşü için gereklidir.
